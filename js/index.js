@@ -44,6 +44,7 @@ var grocery_gere0018 = {
              var btn= document.querySelector("#btnAdd");
           if(localStorage.getItem("grocery-gere0018")){
             myList = JSON.parse(localStorage.getItem("grocery-gere0018"));
+
               console.log("exists");
 
           }else{
@@ -58,18 +59,22 @@ var grocery_gere0018 = {
                 localStorage.setItem("grocery-gere0018",
                                      JSON.stringify(myList) );
                 showList();
-                addToList();
                 $("#item").val('');
                 return false;
 
             });
 
 
-            function removeItem(){
-            console.log(this.parentNode);
-             $(this.parentNode).remove();
+            function removeItem(ev){
+            var txt= ev.currentTarget.parentNode.firstChild.innerHTML;              $(this).parent().remove();
              $("#listView").listview('refresh');
-//          localStorage.setItem("grocery-gere0018", JSON.stringify(myList) );
+             for(var i=0;i<myList.length;i++){
+  	           if(myList[i] == txt){
+                  myList.splice(i, 1);
+                }
+                  }
+            localStorage.setItem("grocery-gere0018", JSON.stringify(myList) );
+            showList();
 
         }
 
@@ -77,16 +82,24 @@ var grocery_gere0018 = {
           var $list =$("#listView");
           $list.html("");
           for(var i=0;i<myList.length;i++){
-          var input= "<input type='checkbox'>";
-          var remove= "<input type='button' id= 'remove' value='remove'>";
-          var $remove= $("#remove");
-          var $li=$("<li>"+ myList[i] + input + remove + "</li>");
-          $list.append($li);
-            $list.listview('refresh');
-//          $li.attr("class","ui-li-static ui-body-inherit ui-last-child");
-          $remove.click(removeItem);
+              var input= "<input type='checkbox' class='done'>";
+              var remove= "<input type='button' class = 'remove' value='remove'>";
 
+              var $li=$("<li>"+ "<p>" + myList[i]+ "</p>" + input + remove + "</li>");
+                  $list.append($li);
+                  $list.listview('refresh');
           }
+            $(".remove").click(removeItem);
+            $(".done").click(function(ev){
+                if($(ev.currentTarget).is(":checked")) {
+                 localStorage.setItem("checkbox_value", true);
+
+                }else{
+                 localStorage.setItem("checkbox_value", false);
+                }
+            });
+            ;
+            $(".done").prop({checked:localStorage.getItem("checkbox_value")});
         }
 
     }
