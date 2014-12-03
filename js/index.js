@@ -65,26 +65,26 @@ var grocery_gere0018 = {
             });
 
 
-            function removeItem(ev){
-              var txt = this.firstChild.nodeValue;
-              for(var i=0;i<myList.length;i++){
-                if(myList[i] == txt){
-                  myList.splice(i, 1);
-                }
-                }
-          localStorage.setItem("grocery-gere0018", JSON.stringify(myList) );
-          showList();
+            function removeItem(){
+            console.log(this.parentNode);
+             $(this.parentNode).remove();
+             $("#listView").listview('refresh');
+//          localStorage.setItem("grocery-gere0018", JSON.stringify(myList) );
+
         }
 
         function showList(){
           var $list =$("#listView");
           $list.html("");
           for(var i=0;i<myList.length;i++){
-          var $li=$("<li>"+ myList[i] + "</li>");
+          var input= "<input type='checkbox'>";
+          var remove= "<input type='button' id= 'remove' value='remove'>";
+          var $remove= $("#remove");
+          var $li=$("<li>"+ myList[i] + input + remove + "</li>");
           $list.append($li);
-        //    $list.listview('refresh');
-          $li.attr("class","ui-li-static ui-body-inherit ui-last-child");
-          $li.click(removeItem);
+            $list.listview('refresh');
+//          $li.attr("class","ui-li-static ui-body-inherit ui-last-child");
+          $remove.click(removeItem);
 
           }
         }
