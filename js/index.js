@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
+var grocery_gere0018 = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -35,19 +35,61 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
 
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
+    grocery_gere0018.receivedEvent('deviceready');
+
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+             var myList= [];
+             var btn= document.querySelector("#btnAdd");
+          if(localStorage.getItem("grocery-gere0018")){
+            myList = JSON.parse(localStorage.getItem("grocery-gere0018"));
+              console.log("exists");
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+          }else{
+              console.log("empty");
+          }
+            showList();
 
-        console.log('Received Event: ' + id);
+            btn.addEventListener("click", function(ev){
+                var newItem= $("#item").val();
+                ev.preventDefault();
+                myList.push( newItem );
+                localStorage.setItem("grocery-gere0018",
+                                     JSON.stringify(myList) );
+                showList();
+                addToList();
+                $("#item").val('');
+                return false;
+
+            });
+
+
+            function removeItem(ev){
+              var txt = this.firstChild.nodeValue;
+              for(var i=0;i<myList.length;i++){
+                if(myList[i] == txt){
+                  myList.splice(i, 1);
+                }
+                }
+          localStorage.setItem("grocery-gere0018", JSON.stringify(myList) );
+          showList();
+        }
+
+        function showList(){
+          var $list =$("#listView");
+          $list.html("");
+          for(var i=0;i<myList.length;i++){
+          var $li=$("<li>"+ myList[i] + "</li>");
+          $list.append($li);
+        //    $list.listview('refresh');
+          $li.attr("class","ui-li-static ui-body-inherit ui-last-child");
+          $li.click(removeItem);
+
+          }
+        }
+
     }
 };
 
-app.initialize();
+grocery_gere0018.initialize();

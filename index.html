@@ -38,15 +38,29 @@
    <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
     </head>
     <body>
-        <div class="app">
-            <h1>My Groceries</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
 
-        <
+       <div data-role="page" id="home">
+              <div data-role="header">
+                <h1>My Groceries</h1>
+              </div>
+                <div data-role="content">
+                    <h3>I need these groceries:</h3>
+                     <ol data-role="listview" id="listView">
+                         <label for="checkbox-h-6a" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-right ui-first-child ui-checkbox-off">One</label>
+                    </ol>
+
+                </div>
+
+            <div data-role="footer" data-position="fixed">
+                  <form>
+                       <input type="text" name="item" id="item" placeholder="new item"/>
+                    <input type="button" data-icon="plus" data-iconpos="left" name="btnAdd" id="btnAdd" value="Add" />
+                  </form>
+
+                </div>
         </div>
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
