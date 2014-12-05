@@ -18,6 +18,7 @@
  */
 var grocery_gere0018 = {
     // Application Constructor
+    myList: [],
     initialize: function() {
         this.bindEvents();
     },
@@ -31,22 +32,21 @@ var grocery_gere0018 = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-          var myList= [];
           var btn= document.querySelector("#btnAdd");
           if(localStorage.getItem("grocery-gere0018")){
             myList = JSON.parse(localStorage.getItem("grocery-gere0018"));
             console.log("exists");
-            showList();
+            grocery_gere0018.showList();
           }else{
             console.log("empty");
           }
 
-         btn.addEventListener("click", addItem );
+         btn.addEventListener("click", grocery_gere0018.addItem );
          document.addEventListener("keypress", function(e){
                     var key = e.which || e.keyCode;
                     if (key == 13) { // 13 is enter
                       // code for enter
-                        addItem();
+                    grocery_gere0018.addItem(e);
                     }
              });
          },
@@ -56,7 +56,7 @@ var grocery_gere0018 = {
                 myList.push( newItem );
                 localStorage.setItem("grocery-gere0018",
                                      JSON.stringify(myList) );
-                showList();
+                grocery_gere0018.showList();
                 $("#item").val('');
                 return false;
 
@@ -70,7 +70,7 @@ var grocery_gere0018 = {
                 }
                   }
             localStorage.setItem("grocery-gere0018", JSON.stringify(myList) );
-            showList();
+            grocery_gere0018.showList();
 
         },
     showList: function(){
@@ -84,7 +84,7 @@ var grocery_gere0018 = {
                   $list.append($li);
                   $list.listview('refresh');
           }
-            $(".remove").click(removeItem);
+            $(".remove").click(grocery_gere0018.removeItem);
             $(".done").click(function(ev){
                 if($(ev.currentTarget).is(":checked")) {
                  localStorage.setItem("checkbox_value", true);
