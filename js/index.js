@@ -21,38 +21,36 @@ var grocery_gere0018 = {
     initialize: function() {
         this.bindEvents();
     },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
 //        document.addEventListener('deviceready', this.onDeviceReady, false);
         document.addEventListener("DOMContentLoaded", this.onDeviceReady, false);
     },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-
     onDeviceReady: function() {
     grocery_gere0018.receivedEvent('deviceready');
 
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-             var myList= [];
-             var btn= document.querySelector("#btnAdd");
+          var myList= [];
+          var btn= document.querySelector("#btnAdd");
           if(localStorage.getItem("grocery-gere0018")){
             myList = JSON.parse(localStorage.getItem("grocery-gere0018"));
-
-              console.log("exists");
-
-          }else{
-              console.log("empty");
-          }
+            console.log("exists");
             showList();
+          }else{
+            console.log("empty");
+          }
 
-            btn.addEventListener("click", function(ev){
+         btn.addEventListener("click", addItem );
+         document.addEventListener("keypress", function(e){
+                    var key = e.which || e.keyCode;
+                    if (key == 13) { // 13 is enter
+                      // code for enter
+                        addItem();
+                    }
+             });
+         },
+    addItem: function(ev){
                 var newItem= $("#item").val();
                 ev.preventDefault();
                 myList.push( newItem );
@@ -62,10 +60,8 @@ var grocery_gere0018 = {
                 $("#item").val('');
                 return false;
 
-            });
-
-
-            function removeItem(ev){
+            },
+    removeItem:function (ev){
             var txt= ev.currentTarget.parentNode.firstChild.innerHTML;              $(this).parent().remove();
              $("#listView").listview('refresh');
              for(var i=0;i<myList.length;i++){
@@ -76,9 +72,8 @@ var grocery_gere0018 = {
             localStorage.setItem("grocery-gere0018", JSON.stringify(myList) );
             showList();
 
-        }
-
-        function showList(){
+        },
+    showList: function(){
           var $list =$("#listView");
           $list.html("");
           for(var i=0;i<myList.length;i++){
@@ -101,8 +96,6 @@ var grocery_gere0018 = {
             ;
             $(".done").prop({checked:localStorage.getItem("checkbox_value")});
         }
-
-    }
 };
 
 grocery_gere0018.initialize();
