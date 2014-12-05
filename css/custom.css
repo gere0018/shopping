@@ -1,0 +1,36 @@
+@media only screen and (min--moz-device-pixel-ratio: 1.5),
+    (-o-min-device-pixel-ratio: 3/2),
+    (-webkit-min-device-pixel-ratio: 1.5),
+    (min-device-pixel-ratio: 1.5) {
+
+  *{
+    font-size: 150%;
+  }
+}
+@media only screen and (min--moz-device-pixel-ratio: 2),
+    (-o-min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2.0),
+    (min-device-pixel-ratio: 2.0) {
+
+  *{
+    font-size: 200%;
+  }
+}
+@media only screen and (min--moz-device-pixel-ratio: 2.5),
+    (-o-min-device-pixel-ratio: 5/2),
+    (-webkit-min-device-pixel-ratio: 2.5),
+    (min-device-pixel-ratio: 2.5) {
+
+  *{
+    font-size: 250%;
+  }
+}
+@media only screen and (min--moz-device-pixel-ratio: 3.0),
+    (-o-min-device-pixel-ratio: 3),
+    (-webkit-min-device-pixel-ratio: 3.0),
+    (min-device-pixel-ratio: 3.0) {
+*{
+    font-size: 300%;
+  }
+
+}
