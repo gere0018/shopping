@@ -23,8 +23,8 @@ var grocery_gere0018 = {
         this.bindEvents();
     },
     bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-//        document.addEventListener("DOMContentLoaded", this.onDeviceReady, false);
+//        document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener("DOMContentLoaded", this.onDeviceReady, false);
     },
     onDeviceReady: function() {
     grocery_gere0018.receivedEvent('deviceready');
@@ -62,25 +62,25 @@ var grocery_gere0018 = {
 
             },
     removeItem:function (ev){
-            var txt= ev.currentTarget.parentNode.firstChild.innerHTML;              $(this).parent().remove();
+        console.log('clicked');
+            var txt= ev.currentTarget.parentNode.children[1].innerHTML;              $(this).parent().remove();
              $("#listView").listview('refresh');
              for(var i=0;i<grocery_gere0018.myList.length;i++){
   	           if(grocery_gere0018.myList[i] == txt){
                   grocery_gere0018.myList.splice(i, 1);
                 }
                   }
-            localStorage.setItem("grocery-gere0018", JSON.stringify(grocery_gere0018.myList) );
+    localStorage.setItem("grocery-gere0018", JSON.stringify(grocery_gere0018.myList) );
             grocery_gere0018.showList();
-
-        },
+ },
     showList: function(){
           var $list =$("#listView");
           $list.html("");
           for(var i=0;i<grocery_gere0018.myList.length;i++){
-              var input= "<input type='checkbox' class='done'>";
-              var remove= "<input type='button' class = 'remove ui-icon-delete ui-icon-btn-right' value='remove'>";
+              var input= "<input type='checkbox' class='ui-btn ui-btn-left done'>";
+              var remove= "<a class ='remove ui-btn ui-btn-right ui-icon-delete ui-btn-icon-left ui-corner-all'>Remove</a>";
 
-              var $li=$("<li>"+ input + "<p>" + grocery_gere0018.myList[i]+ "</p>"  + remove + "</li>");
+              var $li=$("<li><div>"+ input + "<p>" + grocery_gere0018.myList[i]+ "</p>"  + remove + "</div></li>");
                   $list.append($li);
                   $list.listview('refresh');
           }

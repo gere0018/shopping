@@ -21,28 +21,23 @@ font-size: 1.8em;
 }
 .ui-listview>li p {
 font-size: 1.5em;
-display: inline;
-padding-right:
+text-align: center;
+text-transform: uppercase;
 }
 #item{
 font-size: 1.5em;
 }
 #form .ui-input-text{
 width: 45%;
-/*    float: left;*/
-    display: inline-block;
+display: inline-block;
 }
 #form .ui-input-btn{
 width: 40%;
-/*float: left;*/
     display: inline-block;
-}
-.ui-footer .ui-btn{
 font-size: 1.2em;
 }
 .done{
 width: 2em;
 height: 2em;
-vertical-align: middle;
-margin-right: 1.3em;
+display: inline;
 }
