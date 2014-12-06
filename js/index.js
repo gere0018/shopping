@@ -62,14 +62,16 @@ var grocery_gere0018 = {
 
             },
     removeItem:function (ev){
-        console.log('clicked');
-            var txt= ev.currentTarget.parentNode.children[1].innerHTML;              $(this).parent().remove();
-             $("#listView").listview('refresh');
-             for(var i=0;i<grocery_gere0018.myList.length;i++){
-  	           if(grocery_gere0018.myList[i] == txt){
-                  grocery_gere0018.myList.splice(i, 1);
-                }
+                var txt= ev.currentTarget.parentNode.children[1].innerHTML;
+                $(this).parent().remove();
+                $("#listView").listview('refresh');
+                for(var i=0;i<grocery_gere0018.myList.length;i++){
+                  if(grocery_gere0018.myList[i] == txt){
+                      grocery_gere0018.myList.splice(i, 1);
+                      var inputKey= "'" + i + "_checkbox_value"+ "'";
+                      localStorage.removeItem(inputKey);
                   }
+                }
     localStorage.setItem("grocery-gere0018", JSON.stringify(grocery_gere0018.myList) );
             grocery_gere0018.showList();
  },
@@ -81,21 +83,28 @@ var grocery_gere0018 = {
               var remove= "<a class ='remove ui-btn ui-btn-right ui-icon-delete ui-btn-icon-left ui-corner-all'>Remove</a>";
 
               var $li=$("<li><div>"+ input + "<p>" + grocery_gere0018.myList[i]+ "</p>"  + remove + "</div></li>");
-                  $list.append($li);
-                  $list.listview('refresh');
+                 $list.append($li);
+                 $list.listview('refresh');
           }
-            $(".remove").click(grocery_gere0018.removeItem);
-            $(".done").click(function(ev){
-                if($(ev.currentTarget).is(":checked")) {
-                 localStorage.setItem("checkbox_value", true);
 
+        $(".done").each(function(i){
+            var inputKey= "'" + i + "_checkbox_value"+ "'";
+            $(this).click(function(){
+                if($(this).is(":checked")) {
+                    localStorage.setItem(inputKey, true);
                 }else{
-                 localStorage.setItem("checkbox_value", false);
+                    localStorage.setItem(inputKey, false);
                 }
             });
-            ;
-            $(".done").prop({checked:localStorage.getItem("checkbox_value")});
-        }
+            if(localStorage.getItem(inputKey) !== null){
+             $(this).prop({checked:JSON.parse(localStorage.getItem(inputKey))});
+            }
+       });
+
+        $(".remove").click(grocery_gere0018.removeItem);
+
+}
+
 };
 
 grocery_gere0018.initialize();
