@@ -1,4 +1,5 @@
 /*
+
 @media only screen and (min--moz-device-pixel-ratio: 1.5),
     (-o-min-device-pixel-ratio: 3/2),
     (-webkit-min-device-pixel-ratio: 1.5),
@@ -10,33 +11,38 @@
  #item{
    font-size: 90% !important;
 }
-*/
-/*
-@media only screen and (min--moz-device-pixel-ratio: 2),
-    (-o-min-device-pixel-ratio: 2),
-    (-webkit-min-device-pixel-ratio: 2.0),
-    (min-device-pixel-ratio: 2.0) {
+}*/
 
-  *{
-    font-size: 200%;
-  }
+.ui-header h1.ui-title{
+font-size: 2.2em;
 }
-@media only screen and (min--moz-device-pixel-ratio: 2.5),
-    (-o-min-device-pixel-ratio: 5/2),
-    (-webkit-min-device-pixel-ratio: 2.5),
-    (min-device-pixel-ratio: 2.5) {
-
-  *{
-    font-size: 250%;
-  }
+.ui-content h3{
+font-size: 1.8em;
 }
-@media only screen and (min--moz-device-pixel-ratio: 3.0),
-    (-o-min-device-pixel-ratio: 3),
-    (-webkit-min-device-pixel-ratio: 3.0),
-    (min-device-pixel-ratio: 3.0) {
-*{
-    font-size: 300%;
-  }
-
+.ui-listview>li p {
+font-size: 1.5em;
+display: inline;
+padding-right:
 }
-*/
+#item{
+font-size: 1.5em;
+}
+#form .ui-input-text{
+width: 45%;
+/*    float: left;*/
+    display: inline-block;
+}
+#form .ui-input-btn{
+width: 40%;
+/*float: left;*/
+    display: inline-block;
+}
+.ui-footer .ui-btn{
+font-size: 1.2em;
+}
+.done{
+width: 2em;
+height: 2em;
+vertical-align: middle;
+margin-right: 1.3em;
+}

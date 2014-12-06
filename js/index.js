@@ -23,8 +23,8 @@ var grocery_gere0018 = {
         this.bindEvents();
     },
     bindEvents: function() {
-//        document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.addEventListener("DOMContentLoaded", this.onDeviceReady, false);
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+//        document.addEventListener("DOMContentLoaded", this.onDeviceReady, false);
     },
     onDeviceReady: function() {
     grocery_gere0018.receivedEvent('deviceready');
@@ -34,7 +34,7 @@ var grocery_gere0018 = {
     receivedEvent: function(id) {
           var btn= document.querySelector("#btnAdd");
           if(localStorage.getItem("grocery-gere0018")){
-            myList = JSON.parse(localStorage.getItem("grocery-gere0018"));
+            grocery_gere0018.myList = JSON.parse(localStorage.getItem("grocery-gere0018"));
             console.log("exists");
             grocery_gere0018.showList();
           }else{
@@ -53,9 +53,9 @@ var grocery_gere0018 = {
     addItem: function(ev){
                 var newItem= $("#item").val();
                 ev.preventDefault();
-                myList.push( newItem );
+                grocery_gere0018.myList.push(newItem );
                 localStorage.setItem("grocery-gere0018",
-                                     JSON.stringify(myList) );
+                                     JSON.stringify(grocery_gere0018.myList) );
                 grocery_gere0018.showList();
                 $("#item").val('');
                 return false;
@@ -64,23 +64,23 @@ var grocery_gere0018 = {
     removeItem:function (ev){
             var txt= ev.currentTarget.parentNode.firstChild.innerHTML;              $(this).parent().remove();
              $("#listView").listview('refresh');
-             for(var i=0;i<myList.length;i++){
-  	           if(myList[i] == txt){
-                  myList.splice(i, 1);
+             for(var i=0;i<grocery_gere0018.myList.length;i++){
+  	           if(grocery_gere0018.myList[i] == txt){
+                  grocery_gere0018.myList.splice(i, 1);
                 }
                   }
-            localStorage.setItem("grocery-gere0018", JSON.stringify(myList) );
+            localStorage.setItem("grocery-gere0018", JSON.stringify(grocery_gere0018.myList) );
             grocery_gere0018.showList();
 
         },
     showList: function(){
           var $list =$("#listView");
           $list.html("");
-          for(var i=0;i<myList.length;i++){
+          for(var i=0;i<grocery_gere0018.myList.length;i++){
               var input= "<input type='checkbox' class='done'>";
-              var remove= "<input type='button' class = 'remove' value='remove'>";
+              var remove= "<input type='button' class = 'remove ui-icon-delete ui-icon-btn-right' value='remove'>";
 
-              var $li=$("<li>"+ "<p>" + myList[i]+ "</p>" + input + remove + "</li>");
+              var $li=$("<li>"+ input + "<p>" + grocery_gere0018.myList[i]+ "</p>"  + remove + "</li>");
                   $list.append($li);
                   $list.listview('refresh');
           }
