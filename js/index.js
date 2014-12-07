@@ -23,8 +23,8 @@ var grocery_gere0018 = {
         this.bindEvents();
     },
     bindEvents: function() {
-//        document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.addEventListener("DOMContentLoaded", this.onDeviceReady, false);
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+//        document.addEventListener("DOMContentLoaded", this.onDeviceReady, false);
     },
     onDeviceReady: function() {
     grocery_gere0018.receivedEvent('deviceready');
