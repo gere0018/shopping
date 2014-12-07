@@ -14,30 +14,50 @@
 }*/
 
 .ui-header h1.ui-title{
-font-size: 2.2em;
+font-size: 3em;
+font-family: 'Flamenco', cursive;
 }
+/*
 .ui-content h3{
-font-size: 1.8em;
+font-size: 2em;
+font-family: 'Flamenco', cursive;
 }
+*/
 .ui-listview>li p {
 font-size: 1.5em;
 text-align: center;
-text-transform: uppercase;
+font-family: 'Handlee', cursive;
+font-weight:600;
+margin-top: -15px;
 }
 #item{
-font-size: 1.5em;
+font-size: 1.35em;
+font-family: 'Handlee', cursive;
+}
+::-webkit-input-placeholder {
+color: #1862c3;
+text-align: center;
+
 }
 #form .ui-input-text{
 width: 45%;
 display: inline-block;
+margin: 0.5em 1.5em 0.5em 0.5em;
+}
+.remove.ui-icon-delete{
+font-family: 'Handlee', cursive;
 }
 #form .ui-input-btn{
-width: 40%;
-    display: inline-block;
+width: 30%;
+display: inline-block;
 font-size: 1.2em;
+font-family: 'Handlee', cursive;
+margin: 0.5em 0.5em 0.5em 1.5em;
 }
 .done{
-width: 2em;
-height: 2em;
+width: 2.5em;
+height: 2.5em;
 display: inline;
 }
+
+

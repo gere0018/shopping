@@ -79,7 +79,7 @@ var grocery_gere0018 = {
           var $list =$("#listView");
           $list.html("");
           for(var i=0;i<grocery_gere0018.myList.length;i++){
-              var input= "<input type='checkbox' class='ui-btn ui-btn-left done'>";
+              var input= "<input type='checkbox' class='ui-btn ui-btn-left  done'>";
               var remove= "<a class ='remove ui-btn ui-btn-right ui-icon-delete ui-btn-icon-left ui-corner-all'>Remove</a>";
 
               var $li=$("<li><div>"+ input + "<p>" + grocery_gere0018.myList[i]+ "</p>"  + remove + "</div></li>");
