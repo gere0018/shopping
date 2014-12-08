@@ -1,38 +1,23 @@
-/*
 
-@media only screen and (min--moz-device-pixel-ratio: 1.5),
-    (-o-min-device-pixel-ratio: 3/2),
-    (-webkit-min-device-pixel-ratio: 1.5),
-    (min-device-pixel-ratio: 1.5) {
-
-  *{
-    font-size: 120%;
-  }
- #item{
-   font-size: 90% !important;
-}
-}*/
 
 .ui-header h1.ui-title{
-font-size: 3em;
-font-family: 'Flamenco', cursive;
-}
-/*
-.ui-content h3{
 font-size: 2em;
-font-family: 'Flamenco', cursive;
+font-family:'Flamenco', 'Comic Sans MS', 'Comic Sans MS5', cursive;
+padding: 0.5em;
 }
-*/
+
+.listview.ui-li-static{
+list-style-type:none;
+}
 .ui-listview>li p {
 font-size: 1.5em;
 text-align: center;
-font-family: 'Handlee', cursive;
+font-family: 'Handlee', 'Trebuchet MS1', 'Trebuchet MS', sans-serif;
 font-weight:600;
-margin-top: -15px;
 }
 #item{
 font-size: 1.35em;
-font-family: 'Handlee', cursive;
+font-family:  'Handlee', 'Trebuchet MS1', 'Trebuchet MS', sans-serif;
 }
 ::-webkit-input-placeholder {
 color: #1862c3;
@@ -42,21 +27,22 @@ text-align: center;
 #form .ui-input-text{
 width: 45%;
 display: inline-block;
-margin: 0.5em 1.5em 0.5em 0.5em;
+margin: 0.5em;
+margin-right: 1.5em;
 }
 .remove.ui-icon-delete{
-font-family: 'Handlee', cursive;
+font-family:  'Handlee', 'Trebuchet MS1', 'Trebuchet MS', sans-serif;
 }
 #form .ui-input-btn{
-width: 30%;
+width: 15%;
 display: inline-block;
 font-size: 1.2em;
-font-family: 'Handlee', cursive;
-margin: 0.5em 0.5em 0.5em 1.5em;
+font-family:  'Handlee', 'Trebuchet MS1', 'Trebuchet MS', sans-serif;
+margin: 0.5em;
 }
 .done{
-width: 2.5em;
-height: 2.5em;
+width: 3em;
+height: 3em;
 display: inline;
 }
 
