@@ -23,8 +23,8 @@ var grocery_gere0018 = {
         this.bindEvents();
     },
     bindEvents: function() {
-//        document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.addEventListener("DOMContentLoaded", this.onDeviceReady, false);
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+//        document.addEventListener("DOMContentLoaded", this.onDeviceReady, false);
     },
     onDeviceReady: function() {
     grocery_gere0018.receivedEvent('deviceready');
@@ -52,6 +52,7 @@ var grocery_gere0018 = {
          },
     addItem: function(ev){
                 var newItem= $("#item").val();
+               if(newItem !== ''){
                 ev.preventDefault();
                 grocery_gere0018.myList.push(newItem );
                 localStorage.setItem("grocery-gere0018",
@@ -59,6 +60,9 @@ var grocery_gere0018 = {
                 grocery_gere0018.showList();
                 $("#item").val('');
                 return false;
+               }else{
+               alert('Please enter an item');
+               }
 
             },
     removeItem:function (ev){
@@ -79,8 +83,8 @@ var grocery_gere0018 = {
           var $list =$("#listView");
           $list.html("");
           for(var i=0;i<grocery_gere0018.myList.length;i++){
-              var input= "<input type='checkbox' class='ui-btn ui-btn-left  done'>";
-              var remove= "<a class ='remove ui-btn ui-btn-right ui-icon-delete ui-btn-icon-left ui-corner-all'>Remove</a>";
+              var input= "<input type='checkbox' class='ui-btn ui-btn-right done'>";
+              var remove= "<a class ='remove ui-btn ui-btn-left ui-icon-delete ui-btn-icon-left ui-corner-all'>Delete</a>";
 
               var $li=$("<li><div>"+ input + "<p>" + grocery_gere0018.myList[i]+ "</p>"  + remove + "</div></li>");
                  $list.append($li);
