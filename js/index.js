@@ -52,7 +52,7 @@ var grocery_gere0018 = {
          },
     addItem: function(ev){
                 var newItem= $("#item").val();
-               if(newItem !== ''){
+               if(newItem.trim() !== ''){
                 ev.preventDefault();
                 grocery_gere0018.myList.push(newItem );
                 localStorage.setItem("grocery-gere0018",
